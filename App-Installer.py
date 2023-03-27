@@ -3,7 +3,7 @@ import subprocess
 
 
 def main():
-    dir = "E:/Apps/App Setups/"
+    dir = "D:/Apps/App Setups/"
     run_installer(dir)
 
 

@@ -42,3 +42,7 @@ LIST OF APPs:
 8. cpu-z_2.02-rog-en
 9. hwmonitor_1.46 
 -->
+
+
+
+python -m PyInstaller --onefile App-Installer.py 
