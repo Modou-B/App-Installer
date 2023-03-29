@@ -6,10 +6,7 @@ import urllib.error
 import socket
 from pathlib import Path
 from urllib.parse import urlparse
-from pyhelpers.ops import is_downloadable
 import zipfile
-import shutil
-import re
 
 urls = [
     "https://us.download.nvidia.com/Windows/531.41/531.41-desktop-win10-win11-64bit-international-dch-whql.exe",
@@ -61,7 +58,7 @@ folderFormats = [
 ]
 
 def main():
-    os.system("cls")
+    # os.system("cls")
     mode = ChooseMode()
     if int(mode) == 1:
         automaticInstaller(urls, topLevelDomains,fileFormats,folderFormats)
@@ -228,23 +225,23 @@ def run_manuel_installer(dir):
     print_list_of_installed_programs(list_of_installed_apps)
     print_list_of_not_installed_programs(list_of_not_installed_apps)
 
-def UnzipFiles(dir, folderFormats = []):
-    app_folder = os.listdir(dir)
-    for app in app_folder:
-        app_path = os.path.join(dir, app)
+# def UnzipFiles(dir, folderFormats = []):
+#     app_folder = os.listdir(dir)
+#     for app in app_folder:
+#         app_path = os.path.join(dir, app)
         
-        for folder in folderFormats:
-                if folder in app_path:
-                    if os.path.isfile(app_path):
-                        f_format = str(folder)[1:4]
-                        with zipfile.ZipFile(app_path, 'r') as zip_ref:
-                            zip_ref.extractall(dir)
+#         for folder in folderFormats:
+#                 if folder in app_path:
+#                     if os.path.isfile(app_path):
+#                         f_format = str(folder)[1:4]
+#                         with zipfile.ZipFile(app_path, 'r') as zip_ref:
+#                             zip_ref.extractall(dir)
 
 def run_automatic_installer(dir, folderFormats = []):
     os.system("cls")
     list_of_installed_apps = []
     app_folder = os.listdir(dir)
-    dir.sort(key=lambda f: int(filter(str.isdigit,f)))
+    
     for app in app_folder:
         app_path = os.path.join(dir, app)
         
